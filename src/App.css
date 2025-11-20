@@ -1,38 +1,411 @@
-.App {
-  text-align: center;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #1e1e1e; /* match your theme */
+  overflow: hidden; /* prevent body scroll */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container */
+.container {
+  display: flex;
+  height: 100vh; 
+  width: 100vw;  
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Left Sidebar - 40% */
+.sidebar {
+  width: 40%;
+  background-color: #121212;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+/* Profile Image */
+.profile-img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #4da6ff;
+  box-shadow: 0 0 20px rgba(77, 166, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+/* Name & Contact Info */
+.sidebar h1 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #4da6ff;
+}
+
+/* Contact Card */
+.sidebar .contact-card {
+  background-color: rgba(77, 166, 255, 0.1);
+  border: 2px solid #4da6ff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3);
+  margin-top: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar .contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5);
+}
+
+.sidebar .contact-card p {
+  color: #d1d5db;
+  margin: 0.5rem 0;
+}
+
+.sidebar .contact-card a {
+  color: #4da6ff;
+  text-decoration: none;
+}
+
+.sidebar .contact-card a:hover {
+  color: #80c1ff;
+}
+
+/* Right Scrollable Content - 60% */
+.main-content {
+  width: 60%;
+  background: linear-gradient(to bottom right, #0d1b2a, #1b263b);
+  padding: 3rem 2rem;
+  overflow-y: auto; /* scrollable */
+}
+
+.about-card {
+  background-color: rgba(77, 166, 255, 0.1); /* subtle blue hue */
+  border: 2px solid #4da6ff;                 /* bright blue border */
+  border-radius: 12px;                        /* rounded corners */
+  padding: 1.5rem 2rem;
+  max-width: 700px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3); /* soft glow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5); /* hover glow */
+}
+
+/* Grid for Work Experience */
+.experience-grid {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 2rem;              /* same spacing as projects */
+  
+}
+
+/* Individual Work Experience Cards */
+.experience-card {
+  background-color: rgba(77, 166, 255, 0.1); /* same subtle blue hue */
+  border: 2px solid #4da6ff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5);
+}
+
+.experience-card h3 {
+  margin-bottom: 1rem;
+  color: #4da6ff;
+  font-size: 1.3rem;
+}
+
+.experience-card ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+
+/* Sections */
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #4da6ff;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1rem;
+  color:#d1d5db;
+  line-height: 1.7;
+}
+
+/* Projects List - stacked layout */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+}
+
+/* Project Card (same style as experience/about) */
+.project-card {
+  background-color: rgba(77, 166, 255, 0.1);
+  border: 2px solid #4da6ff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5);
+}
+
+.project-card h3 {
+  color: #4da6ff;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  color: #d1d5db;
+  line-height: 1.6;
+}
+/* Scrollbar for right side */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #4da6ff;
+  border-radius: 4px;
+}
+
+/* Education Grid (vertical stack like projects/experience) */
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* Education Card (same style as project & experience cards) */
+.education-card {
+  background-color: rgba(77, 166, 255, 0.1);
+  border: 2px solid #4da6ff;
+  border-radius: 12px;
+  max-width: 700px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* NEW → allow logo + text to sit side-by-side */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.education-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5);
+}
+
+/* LSU logo sizing */
+.education-logo {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+.education-card h3 {
+  margin-bottom: 0.5rem;
+  color: #4da6ff;
+  font-size: 1.3rem;
+}
+
+.education-card .degree {
+  color: #d1d5db;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-card .date {
+  color: #9ca3af;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.education-card ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+/* Resume Row */
+.resume-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(77, 166, 255, 0.1);
+  border: 2px solid #4da6ff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  width: 90%;       /* <<< WIDENED */
+  max-width: 420px; /* <<< CONTROL MAX WIDTH */
+  box-shadow: 0 4px 15px rgba(77, 166, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.5);
+}
+
+/* Resume Text */
+.resume-text {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Preview Button */
+.resume-preview-button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #4da6ff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #4da6ff;
+  margin-right: 8px;
+  transition: background 0.2s ease;
+}
+
+.resume-preview-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Download Button */
+.resume-icon-button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #4da6ff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #4da6ff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.resume-icon-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.pdf-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  z-index: 999;
 }
 
-.App-link {
-  color: #61dafb;
+.pdf-modal {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 70vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.resume-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Sidebar Section Title (matches main <h2> styling) */
+.sidebar-section-title {
+  font-size: 1.6rem;
+  color: #4da6ff;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+  width: 80%;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+
+  .sidebar h1 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info {
+    display: none; /* optional for mobile */
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 2rem 1rem;
   }
 }
