@@ -29,20 +29,24 @@ function App() {
         </div>
         <h2 className="sidebar-section-title">Resume</h2>
         <div className="resume-row">
-        <span className="resume-text">View and Download my resume</span>
-        <button 
-          className="resume-preview-button" 
-          onClick={() => setShowPreview(true)}
-        >
-          👁️
-        </button>
-        <a 
-          href="/ThorntonResume.pdf" 
-          download 
-          className="resume-icon-button"
-        >
-          ⬇️
-        </a>
+        <span className="resume-text">View and download my resume</span>
+
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button
+            className="resume-button"
+            onClick={() => setShowPreview(true)}
+          >
+            View
+          </button>
+
+          <a
+            className="resume-button"
+            href="/ThorntonResume.pdf"
+            download
+          >
+            Download
+          </a>
+        </div>
       </div>
 
         {showPreview && (
@@ -52,7 +56,7 @@ function App() {
 
               {/* Display the PNG instead of PDF viewer */}
               <img 
-                src="/ThorntonResume (1)-1.png" 
+                src={process.env.PUBLIC_URL + "/ThorntonResume (1)-1.png"} 
                 alt="Resume Preview" 
                 className="resume-image"
               />
