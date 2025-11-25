@@ -15,14 +15,9 @@ function App() {
 
         {/* Contact Card */}
         <div className="contact-card">
-          <p><strong>Email:</strong> aidenthornton@example.com</p>
-          <p><strong>LinkedIn:</strong> 
-            <a href="https://linkedin.com/in/aidenthornton" target="_blank" rel="noopener noreferrer">
-              linkedin.com/in/aidenthornton
-            </a>
-          </p>
+          <p><strong>Email:</strong> Caliairsofters@gmail.com</p>
           <p><strong>GitHub:</strong> 
-            <a href="https://github.com/aidenthornton" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Athor31" target="_blank" rel="noopener noreferrer">
               github.com/aidenthornton
             </a>
           </p>
